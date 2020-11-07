@@ -29,3 +29,58 @@
 9. 课程的信息由老师自行录入，录入后在学生选课完成后老师可以查看选择本门课程的学生的基本信息，并可以对学生的信息进行管理，如增加学生或者删除学生等
 10. 课程的成绩由老师负责录入，成绩录入后老师则不可以对学生成绩进行修改.
 11. admin管理员负责对老师和学生的信息进行管理，包括新学生信息的录入，按照学院-专业-班级的方式进行录入和管理。还有对老师信息进行管理，按照学院-专业的方式进行管理,同时admin应该可以对教师和学生的信息进行管理，如学生转专业或教师职称变化等.
+12. 管理员属性包括账号，密码，所在学院等
+---
+
+### E-R图
+
+![E-R图](.\E-R.png "E-R图")
+
+--- 
+### 数据表
+
+#### 学生表
+| name  | attr |
+| ---  | --- |
+| StuNum | charfield|
+| StuName | charfield|
+| StuAge | Intergerfield|
+| StuSex | charfield|
+| StuBirth | Datefield|
+| StuCollege | charfield|
+| StuPass | charfield|
+| StuMajor | charfield|
+| StuGra | Booleanfield|
+#### 教师表
+| name  | attr |
+| ---  | --- |
+| TeaNum | charfield|
+| TeaName | charfield|
+| TeaPass | charfield|
+| TeaCollege | charfield|
+| TeaMajor | charfield|
+| TeaSex | charfield|
+| TeaBirth | Datefield|
+#### 管理员表
+| name  | attr |
+| ---  | --- |
+| AdminUser | Intergerfield|
+| AdminPass | charfield|
+| AdminCollege | charfield|
+#### 课程表
+| name  | attr |
+| ---  | --- |
+| CourName | charfield|
+| CourCredit | floatfield|
+| CourPlace | charfield|
+| CourType | charfield|
+| CourReq | charfield|
+| CourTea | charfield|
+#### 成绩表
+| name  | attr |
+| ---  | --- |
+| CouName | charfield|
+| StuName | charfield|
+| CourGrade | floatfield|
+| TeaName | charfield| 
+
