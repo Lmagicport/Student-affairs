@@ -64,7 +64,7 @@
 #### 管理员表
 | name  | attr |
 | ---  | --- |
-| AdminUser | Intergerfield|
+| AdminUser | charfield|
 | AdminPass | charfield|
 | AdminCollege | charfield|
 #### 课程表
