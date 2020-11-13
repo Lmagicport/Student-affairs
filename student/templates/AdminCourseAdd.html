@@ -1,0 +1,47 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课程添加</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'css/layui.css' %}"/>
+</head>
+<body>
+<!--课程添加-->
+{% block content %}
+    <div class="layui-container">
+        <blockquote class="layui-elem-quote">
+            <h1>Add Student</h1>
+        </blockquote>
+
+        <div class="layui-row">
+
+            <div class="layui-col-md9">
+                <form action="/AdminCourseAddStudent/" method="post" class="layui-form layui-form-pane" />
+                {% csrf_token %}
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="CourName" id="CourName" placeholder="课程名" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="CourCredit" id="CourCredit" placeholder="学分" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="CourPlace" id="CourPlace" placeholder="上课地点" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="CourType" id="CourType" placeholder="课程类型" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="CourReq" id="CourReq" placeholder="前置课程" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="CourTea" id="CourTea" placeholder="任课教师" class="layui-input"/>
+                    <hr class="layui-bg-green">
+                    <input type="submit" value="添加" class="layui-btn"/>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

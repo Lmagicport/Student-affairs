@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'rlnbg$yaz5ekvc!q78b126f8&qsc6v0_@0n)!9rz7k#8fv45fq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -38,14 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'admin'
+    'affairadmin',
+    'affairteacher',
+    'affairstudent',
+    'affaircourse'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -81,7 +84,7 @@ DATABASES = {
         'NAME': 'studentaffairs',
         'USER': 'root',
         'PASSWORD': '123456',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PROT': '3306',
     }
 }
@@ -126,10 +129,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # 设置静态文件夹下的目录
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static')
-)
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = [
+    ("css",os.path.join(STATIC_ROOT, 'css')),
+    ("js",os.path.join(STATIC_ROOT, 'js')),
+    ("images",os.path.join(STATIC_ROOT, 'images')),
+    ("lib",os.path.join(STATIC_ROOT, 'lib')),
+    ("fonts",os.path.join(STATIC_ROOT, 'fonts')),
+]
 
 # 设置文件上传路径
-MEDIA_URL = '/media'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

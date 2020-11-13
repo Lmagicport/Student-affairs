@@ -1,0 +1,166 @@
+{% load static %}
+<html class="x-admin-sm">
+<head>
+    <meta charset="UTF-8">
+    <title>勤工助学管理系统</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/xadmin.css' %}">
+    <!-- <link rel="stylesheet" href="./css/theme5.css"> -->
+    <script type="text/javascript" src="/static/js/layui.js" ></script>
+    <script type="text/javascript" src="/static/js/xadmin.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!--<body class="index">-->
+<!--&lt;!&ndash; 顶部开始 &ndash;&gt;-->
+<!--<div class="container">-->
+<!--    <div class="logo">-->
+<!--        <a >勤工助学管理系统</a></div>-->
+<!--    <ul class="layui-nav right" lay-filter="">-->
+<!--        <li class="layui-nav-item">-->
+<!--            <a th:text="${name}">Spring boot集成 Thymeleaf</a>-->
+<!--            <dl class="layui-nav-child">-->
+<!--                &lt;!&ndash; 二级菜单 &ndash;&gt;-->
+<!--                <dd>-->
+<!--                    <a onclick="xadmin.open('个人信息','teacherMessage')">个人信息</a></dd>-->
+<!--                <dd>-->
+<!--                    <a href="login">退出</a></dd>-->
+<!--            </dl>-->
+<!--        </li>-->
+<!--        <li class="layui-nav-item to-index">-->
+<!--            <a ></a></li>-->
+<!--    </ul>-->
+<!--</div>-->
+<!--&lt;!&ndash; 顶部结束 &ndash;&gt;-->
+<!--&lt;!&ndash; 中部开始 &ndash;&gt;-->
+<!--&lt;!&ndash; 左侧菜单开始 &ndash;&gt;-->
+<!--<div class="left-nav">-->
+<!--    <div id="side-nav">-->
+<!--        <ul id="nav">-->
+<!--            <li>-->
+<!--                <a href="javascript:;">-->
+<!--                    <i class="iconfont left-nav-li" lay-tips="岗位相关">&#xe6b8;</i>-->
+<!--                    <cite>岗位相关</cite>-->
+<!--                    <i class="iconfont nav_right">&#xe697;</i></a>-->
+<!--                <ul class="sub-menu">-->
+<!--                    <li>-->
+<!--                        <a onclick="xadmin.add_tab('runoob','runoob')">-->
+<!--                            <i class="iconfont">&#xe6a7;</i>-->
+<!--                            <cite>runoob</cite></a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
+<!--&lt;!&ndash; <div class="x-slide_left"></div> &ndash;&gt;-->
+<!--&lt;!&ndash; 左侧菜单结束 &ndash;&gt;-->
+<!--&lt;!&ndash; 右侧主体开始 &ndash;&gt;-->
+<!--<div class="page-content">-->
+<!--    <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">-->
+<!--&lt;!&ndash;        <ul class="layui-tab-title">&ndash;&gt;-->
+<!--&lt;!&ndash;            <li class="home">&ndash;&gt;-->
+<!--&lt;!&ndash;                &lt;!&ndash;<i class="layui-icon">&#xe68e;</i>我的桌面</li>&ndash;&gt;</ul>&ndash;&gt;-->
+<!--        <div class="layui-unselect layui-form-select layui-form-selected" id="tab_right">-->
+<!--            <dl>-->
+<!--                <dd data-type="this">关闭当前</dd>-->
+<!--                <dd data-type="other">关闭其它</dd>-->
+<!--                <dd data-type="all">关闭全部</dd></dl>-->
+<!--        </div>-->
+<!--        <div class="layui-tab-content">-->
+<!--            <div class="layui-tab-item layui-show">-->
+<!--                <iframe src='home' frameborder="0" scrolling="yes" class="x-iframe"></iframe>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div id="tab_show"></div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="page-content-bg"></div>-->
+<!--<style id="theme_style"></style>-->
+<!--&lt;!&ndash; 右侧主体结束 &ndash;&gt;-->
+<!--&lt;!&ndash; 中部结束 &ndash;&gt;-->
+<!--</body>-->
+
+<!--</html>-->
+<body>
+<ul class="layui-nav layui-nav-tree layui-nav-side" lay-filter="">
+<!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+  <li class="layui-nav-item layui-nav-itemed">
+    <a href="javascript:;">默认展开</a>
+    <dl class="layui-nav-child">
+      <dd><a href="runoob">选项1</a></dd>
+      <dd><a href="javascript:;">选项2</a></dd>
+      <dd><a href="runoob">跳转</a></dd>
+    </dl>
+  </li>
+  <li class="layui-nav-item">
+    <a href="javascript:;">解决方案</a>
+    <dl class="layui-nav-child">
+      <dd><a href="">移动模块</a></dd>
+      <dd><a href="">后台模版</a></dd>
+      <dd><a href="">电商平台</a></dd>
+    </dl>
+  </li>
+  <li class="layui-nav-item"><a href="">产品</a></li>
+  <li class="layui-nav-item"><a href="">大数据</a></li>
+</ul>
+<table id="demo" lay-filter="test"></table>
+
+<!--<script type="text/javascript" src="/static/js/layui.js" ></script>-->
+<script>
+layui.use('table', function(){
+  var table = layui.table;
+
+  //第一个实例
+  table.render({
+    elem: '#demo'
+    ,height: 312
+    ,url: 'data' //数据接口
+    ,page: true //开启分页
+    ,cols: [[ //表头
+      {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
+      ,{field: 'username', title: '用户名', width:80}
+      ,{field: 'sex', title: '性别', width:80, sort: true}
+      ,{field: 'city', title: '城市', width:80}
+      ,{field: 'sign', title: '签名', width: 177}
+      ,{field: 'experience', title: '积分', width: 80, sort: true}
+      ,{field: 'score', title: '评分', width: 80, sort: true}
+      ,{field: 'classify', title: '职业', width: 80}
+      ,{field: 'wealth', title: '财富', width: 135, sort: true}
+    ]]
+  });
+
+});
+</script>
+<!--<ul class="layui-nav" lay-filter="">-->
+<!--  <li class="layui-nav-item"><a href="runoob">最新活动</a></li>-->
+<!--  <li class="layui-nav-item layui-this"><a href="runoob">产品</a></li>-->
+<!--  <li class="layui-nav-item"><a href="">大数据</a></li>-->
+<!--  <li class="layui-nav-item">-->
+<!--    <a href="javascript:;">解决方案</a>-->
+<!--    <dl class="layui-nav-child"> &lt;!&ndash; 二级菜单 &ndash;&gt;-->
+<!--      <dd><a href="runoob">移动模块</a></dd>-->
+<!--      <dd><a href="">后台模版</a></dd>-->
+<!--      <dd><a href="">电商平台</a></dd>-->
+<!--    </dl>-->
+<!--  </li>-->
+<!--  <li class="layui-nav-item"><a href="">社区</a></li>-->
+<!--</ul>-->
+
+<script>
+layui.use('element', function(){
+  var element = layui.element;
+
+});
+</script>
+</body>
+</html>

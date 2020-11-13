@@ -76,6 +76,7 @@
 | CourType | charfield|
 | CourReq | charfield|
 | CourTea | charfield|
+| CourNum | Integerfield|
 #### 成绩表
 | name  | attr |
 | ---  | --- |
@@ -85,4 +86,3 @@
 | TeaName | charfield| 
 
 ---
-
