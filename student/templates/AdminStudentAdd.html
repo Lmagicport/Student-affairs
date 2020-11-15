@@ -1,0 +1,50 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息添加</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'css/layui.css' %}"/>
+</head>
+<body>
+<!--学生添加-->
+{% block content %}
+    <div class="layui-container">
+        <blockquote class="layui-elem-quote">
+            <h1>Add Student</h1>
+        </blockquote>
+
+        <div class="layui-row">
+
+            <div class="layui-col-md9">
+                <form action="/AdminAddStudent/" method="post" class="layui-form layui-form-pane" />
+                {% csrf_token %}
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="StuNum" id="StuNum" placeholder="学号" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="StuName" id="StuName" placeholder="学生姓名" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="StuAge" id="StuAge" placeholder="年龄" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="StuSex" id="StuSex" placeholder="性别" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="StuCollege" id="StuCollege" placeholder="所属学院" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="StuMajor" id="StuMajor" placeholder="所属专业" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="StuGra" id="StuGra" placeholder="毕业填1，未毕业填0" class="layui-input"/>
+                    <hr class="layui-bg-green">
+                    <input type="submit" value="添加" class="layui-btn"/>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

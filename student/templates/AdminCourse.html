@@ -13,12 +13,6 @@
         <blockquote class="layui-elem-quote">
             <h1>CRUD——Django + LayUI</h1>
         </blockquote>
-<!--        {# 查询学生模块 #}-->
-<!--        <form action="/search" method="get">-->
-<!--            <input placeholder="学生名" name="q" id="q">-->
-<!--            <input type="submit" class="layui-btn" value="搜索">-->
-<!--        </form>-->
-
         {# 显示所有课程模块 #}
         <table class="layui-table">
       <colgroup>
@@ -35,6 +29,7 @@
             <th>课程类型</th>
             <th>前置课程</th>
             <th>任课教师</th>
+            <th>删除</th>
         </tr>
       </thead>
       <tbody>
@@ -47,6 +42,12 @@
                 <td>{{course.CourType}}</td>
                 <td>{{course.CourReq}}</td>
                 <td>{{course.CourTea}}</td>
+                <td>
+                    {# 删除学生模块 #}
+                    <a href="/delete/{{ course.id }}" class="layui-btn layui-btn-danger">
+                        <i class="layui-icon">&#xe640;</i>删除
+                    </a>
+                </td>
             </tr>
         {%endfor%}
       </tbody>

@@ -10,3 +10,4 @@ class StudentAdmin(models.Model):
     class Meta:
         db_table = 'admin'
 
+

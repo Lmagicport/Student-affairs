@@ -1,0 +1,47 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课程管理</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/layui.css' %}"/>
+</head>
+{% block content %}
+    <div class="layui-container">
+        <blockquote class="layui-elem-quote">
+            <h1>Update Student Page</h1>
+        </blockquote>
+
+        <div class="layui-row">
+        {%for student in data%}
+            <div class="layui-col-md5">
+                <form action="/updateStudent/" method="post" enctype="multipart/form-data"/>
+
+                    <input type="text" name="StuNum" id="StuNum" placeholder="学号" class="layui-input" value="{{ student.StuNum}}" />
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="StuName" id="StuName" placeholder="学生名" class="layui-input" value="{{ student.StuName}}"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="StuAge" id="StuAge" placeholder="学生年龄" class="layui-input" value="{{ student.StuAge }}"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="StuSex" id="StuSex" placeholder="性别" class="layui-input" value="{{ student.StuSex }}"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="StuCollege" id="StuCollege" placeholder="学院" class="layui-input" value="{{ student.StuCollege }}"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="StuMajor" id="StuMajor" placeholder="专业" class="layui-input" value="{{ student.StuMajor }}"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="StuGra" id="StuGra" placeholder="是否毕业" class="layui-input" value="{{ student.StuGra }}"/>
+                    <hr class="layui-bg-green">
+
+
+                    <input type="submit" value="修改" class="layui-btn"/>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

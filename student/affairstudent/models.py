@@ -8,7 +8,7 @@ class StudentStudent(models.Model):
     StuName = models.CharField(max_length=10)
     StuAge = models.IntegerField()
     StuSex = models.CharField(max_length=10)
-    StuBirth = models.DateField()
+    # StuBirth = models.DateField()
     StuCollege = models.CharField(max_length=10)
     StuPass = models.CharField(max_length=10)
     StuMajor = models.CharField(max_length=10)

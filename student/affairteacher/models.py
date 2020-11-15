@@ -10,8 +10,10 @@ class StudentTeacher(models.Model):
     TeaCollege = models.CharField(max_length=10)
     TeaMajor = models.CharField(max_length=10)
     TeaSex = models.CharField(max_length=10)
-    TeaBirth = models.DateField()
+    # TeaBirth = models.DateField()
     class Meta:
         db_table = 'teacher'
+    def __str__(self) -> str:
+        return self.TeaName
 
 

@@ -52,15 +52,16 @@
 | StuMajor | charfield|
 | StuGra | Booleanfield|
 #### 教师表
-| name  | attr |
-| ---  | --- |
-| TeaNum | charfield|
-| TeaName | charfield|
-| TeaPass | charfield|
-| TeaCollege | charfield|
-| TeaMajor | charfield|
-| TeaSex | charfield|
-| TeaBirth | Datefield|
+| name  | attr |meaning|
+| ---  | --- | --- |
+| TeaNum | charfield| 教师编号|  
+| TeaName | charfield| 教师姓名|
+| TeaPass | charfield| 教师密码|
+| TeaCollege | charfield| 教师所在院系|
+| TeaMajor | charfield| 教师所在专业 |
+| TeaSex | charfield| 教师性别 |
+| TeaBirth | Datefield| 教师出生年月
+
 #### 管理员表
 | name  | attr |
 | ---  | --- |

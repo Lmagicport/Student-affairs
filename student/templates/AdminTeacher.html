@@ -1,10 +1,59 @@
-<!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>课程管理</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/layui.css' %}"/>
 </head>
 <body>
-管理员 教师管理
+<!--管理员 教师管理-->
+{% block content %}
+    <div class="layui-container">
+        <blockquote class="layui-elem-quote">
+            <h1>CRUD——Django + LayUI</h1>
+        </blockquote>
+        {# 显示所有教师模块 #}
+        <table class="layui-table">
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+            <th>工号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>学院</th>
+            <th>专业</th>
+            <th>修改</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for teacher in data%}
+            <tr>
+                <td>{{teacher.TeaNum}}</td>
+                <td>{{teacher.TeaName}}</td>
+                <td>{{teacher.TeaSex}}</td>
+                <td>{{teacher.TeaCollege}}</td>
+                <td>{{teacher.TeaMajor}}</td>
+                <td>
+                    {# 修改教师模块 #}
+                    <a href="/search_teacher/{{ teacher.TeaNum }}" class="layui-btn layui-btn-danger">
+                        <i class="layui-icon">&#xe640;</i>修改
+                    </a>
+                </td>
+            </tr>
+        {%endfor%}
+      </tbody>
+        </table>
+
+        {# 添加教师模块 #}
+        <a href="/AdminTeacherAdd" class="layui-btn layui-btn-warm">
+            <i class="layui-icon">&#xe654;</i> 添加
+        </a>
+    </div>
+{% endblock %}
 </body>
 </html>

@@ -1,0 +1,45 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息添加</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'css/layui.css' %}"/>
+</head>
+<body>
+<!--教师添加-->
+{% block content %}
+    <div class="layui-container">
+        <blockquote class="layui-elem-quote">
+            <h1>Add Teacher</h1>
+        </blockquote>
+
+        <div class="layui-row">
+
+            <div class="layui-col-md9">
+                <form action="/AdminAddTeacher/" method="post" class="layui-form layui-form-pane" />
+                {% csrf_token %}
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="TeaNum" id="TeaNum" placeholder="工号" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="TeaName" id="TeaName" placeholder="教师姓名" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="TeaSex" id="TeaSex" placeholder="性别" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="TeaCollege" id="TeaCollege" placeholder="所属学院" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="text" name="TeaMajor" id="TeaMajor" placeholder="所属专业" class="layui-input"/>
+                    <hr class="layui-bg-green">
+
+                    <input type="submit" value="添加" class="layui-btn"/>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

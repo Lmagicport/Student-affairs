@@ -1,7 +1,10 @@
 from django.shortcuts import render
 
 # Create your views here.
-def AdminCourse(request):
-  print("111")
+from student.affaircourse.models import StudentCourse
 
-  return  render(request, 'AdminCourse.html')
+
+def AdminCourse(request):
+  data = StudentCourse.objects.all()
+  content = {'data': data}
+  return  render(request, 'AdminCourse.html',content)
