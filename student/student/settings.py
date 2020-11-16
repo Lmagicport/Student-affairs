@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'affairadmin',
     'affairteacher',
     'affairstudent',
-    'affaircourse'
+    'affaircourse',
+    'affairCS'
 ]
 
 MIDDLEWARE = [

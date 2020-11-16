@@ -79,8 +79,10 @@
 | CourTea | charfield|
 | CourNum | Integerfield|
 #### 成绩表
+
 | name  | attr |
 | ---  | --- |
+| StuNum |
 | CouName | charfield|
 | StuName | charfield|
 | CourGrade | floatfield|

@@ -73,28 +73,60 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
-          <h2 class="sub-header">Section title</h2>
+          <h1 class="page-header">查看个人信息</h1>
+          <h2 class="sub-header">个人信息</h2>
           <div class="table-responsive">
             <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-              </tbody>
+                <thead>
+                    <tr class="info">
+                        <th>教师姓名:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="active">
+                        <td>{{teainfo.TeaName}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr class="info">
+                        <th>教师职工号:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="active">
+                        <td>{{teainfo.TeaNum}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr class="info">
+                        <th>所属学院:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="active">
+                        <td>{{teainfo.TeaCollege}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr class="info">
+                        <th>所属院系:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="active">
+                        <td>{{teainfo.TeaMajor}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr class="info">
+                        <th>出生年月:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="active">
+                        <td>{{teainfo.TeaBirth|date:"Y-m"}}</td>
+                    </tr>
+                </tbody>
             </table>
           </div>
         </div>

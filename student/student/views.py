@@ -1,27 +1,28 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render,redirect
-from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render, redirect
 from django.conf import settings
-import os
-import json
 from affairadmin.models import StudentAdmin
 from affaircourse.models import StudentCourse
 from affairteacher.models import StudentTeacher
 from affairstudent.models import StudentStudent
 
+
 def login(request):
-  return  render(request, 'login.html')
+  return render(request, 'login.html')
+
 
 def AdminCourseAdd(request):
   return  render(request, 'AdminCourseAdd.html')
 
+
 def AdminStudentAdd(request):
   return  render(request, 'AdminStudentAdd.html')
 
+
 def AdminTeacherAdd(request):
   return  render(request, 'AdminTeacherAdd.html')
+
 
 def AdminAddCourse(request):
   print('??')
@@ -38,10 +39,12 @@ def AdminAddCourse(request):
   content = {'data': data}
   return  render(request, 'AdminCourse.html' , content)
 
+
 def AdminCourse(request):
   data = StudentCourse.objects.all()
   content = {'data': data}
   return  render(request, 'AdminCourse.html',content)
+
 
 def delete_course(request, course_id):
   print(course_id)
@@ -49,6 +52,7 @@ def delete_course(request, course_id):
   data = StudentCourse.objects.all()
   content = {'data': data}
   return render(request, 'AdminCourse.html',content)
+
 
 def AdminStudent(request):
   data = StudentStudent.objects.all()
@@ -72,9 +76,9 @@ def loginin(request):
   elif(identity == 'teacher'):
     ret = StudentTeacher.objects.filter(TeaNum=username, TeaPass=password)
     if (len(ret) != 0):
-      Name = ret[0].TeaName
-      print(Name)
-      return render(request, 'teacher.html',{"name":Name})
+      teainfo = ret[0]
+      print(teainfo)
+      return render(request, 'teacher.html',{"teainfo": teainfo})
     else:
       return render(request, 'error.html')
   else:
@@ -83,6 +87,7 @@ def loginin(request):
       return render(request, 'student.html')
     else:
       return render(request, 'error.html')
+
 
 def AdminAddStudent(request):
     print('??')
@@ -101,11 +106,13 @@ def AdminAddStudent(request):
     content = {'data': data}
     return render(request, 'AdminStudent.html', content)
 
-def search_student(request,student_StuNum):
-    student=StudentStudent.objects.filter(StuNum=student_StuNum)
+
+def search_student(request, student_StuNum):
+    student = StudentStudent.objects.filter(StuNum=student_StuNum)
     content = {'data': student}
     print(content)
     return  render(request, 'AdminStudentUpdate.html', content)
+
 
 @csrf_exempt
 def updateStudent(request):
@@ -147,7 +154,7 @@ def AdminAddTeacher(request):
     return render(request, 'AdminTeacher.html',content)
 
 
-def search_teacher(request,teacher_TeaNum):
+def search_teacher(request, teacher_TeaNum):
     teacher=StudentTeacher.objects.filter(TeaNum=teacher_TeaNum)
     content = {'data': teacher}
     print(content)
@@ -156,7 +163,6 @@ def search_teacher(request,teacher_TeaNum):
 
 @csrf_exempt
 def updateTeacher(request):
-
     TeaNum=request.POST['TeaNum']
     TeaName = request.POST['TeaName']
     TeaSex = request.POST['TeaSex']

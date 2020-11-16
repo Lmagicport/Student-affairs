@@ -36,5 +36,5 @@ urlpatterns = [
     url(r'^updateStudent/', views.updateStudent),
     url(r'^search_teacher/(?P<teacher_TeaNum>[0-9]*)/$', views.search_teacher),
     url(r'^updateTeacher/', views.updateTeacher),
-    url(r'^teacher/$',include('affairteacher.urls'))
+    url(r'^teacher/', include(('affairteacher.urls', 'teacher'), namespace='teacher'))
 ]

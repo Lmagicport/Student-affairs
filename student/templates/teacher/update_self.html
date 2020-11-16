@@ -73,28 +73,39 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
-          <h2 class="sub-header">Section title</h2>
+          <h1 class="page-header">修改个人信息</h1>
+          <h2 class="sub-header">个人信息</h2>
           <div class="table-responsive">
             <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-              </tbody>
+                <thead>
+                    <tr class="info">
+                        <th>教师教工号:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="active">
+                        <td>{{teainfo.TeaNum}}</td>
+                    </tr>
+                </tbody>
+                <form>
+                    <div class="form-group">
+                        <lable for="TeaName">教师姓名</lable>
+                        <input type=“TeaName” class="form-control" id="TeaName" placeholder={{teainfo.TeaName}}>
+                    </div>
+                    <div class="form-group">
+                        <lable for="TeaCollege">所属学院</lable>
+                        <input type="TeaCollege" class="form-control" id="TeaCollege" placeholder={{teainfo.TeaCollege}}>
+                    </div>
+                     <div class="form-group">
+                        <lable for="TeaMajor">所属专业</lable>
+                        <input type="TeaMajor" class="form-control" id="TeaMajor" placeholder={{teainfo.TeaMajor}}>
+                    </div>
+                     <div class="form-group">
+                        <lable for="TeaBirth">出生年月</lable>
+                        <input type="TeaBirth" class="form-control" id="TeaBirth" placeholder={{teainfo.TeaBirth|date:"Y-m"}}>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </table>
           </div>
         </div>
