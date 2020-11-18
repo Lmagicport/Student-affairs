@@ -87,31 +87,26 @@
                         <td>{{teainfo.TeaNum}}</td>
                     </tr>
                 </tbody>
-                <form action="/teacher/teacher/updateself/result/{{teainfo.TeaNum}}" method="post">
-                {% csrf_token %}
+                <form>
                     <div class="form-group">
                         <lable for="TeaName">教师姓名</lable>
-                        <input type=“text” class="form-control" Name="Name" placeholder={{teainfo.TeaName}} value={{teainfo.TeaName}}>
-                    </div>
-                    <div class="form-group">
-                        <lable for="TeaSex">教师性别</lable>
-                        <input type="text" class="form-control" Name="Sex" placeholder={{teainfo.TeaSex}} value={{teainfo.TeaSex}}>
+                        <input type=“TeaName” class="form-control" Name="Name" placeholder={{teainfo.TeaName}}>
                     </div>
                     <div class="form-group">
                         <lable for="TeaCollege">所属学院</lable>
-                        <input type="text" class="form-control" Name="College" placeholder={{teainfo.TeaCollege}} value={{teainfo.TeaCollege}}>
+                        <input type="TeaCollege" class="form-control" Name="College" placeholder={{teainfo.TeaCollege}}>
                     </div>
                      <div class="form-group">
                         <lable for="TeaMajor">所属专业</lable>
-                        <input type="text" class="form-control" Name="Major" placeholder={{teainfo.TeaMajor}} value={{teainfo.TeaMajor}}>
+                        <input type="TeaMajor" class="form-control" Name="Major" placeholder={{teainfo.TeaMajor}}>
                     </div>
-                    
                      <div class="form-group">
                         <lable for="TeaBirth">出生年月</lable>
-                        <input type="TeaBirth" class="form-control" Name="Birth" placeholder={{teainfo.TeaBirth|date:"Y-m-d"}} value={{teainfo.TeaBirth}}>
+                        <input type="TeaBirth" class="form-control" Name="Birth" placeholder={{teainfo.TeaBirth|date:"Y-m-d"}}>
                     </div>
-                    <button type="submit" class="btn btn-primary" value="updateself">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
+                <p class="bg-success">修改成功!</p>
             </table>
           </div>
         </div>
