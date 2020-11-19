@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 
@@ -11,7 +10,9 @@ class StudentCourse(models.Model):
     CourType = models.CharField(max_length=10)
     CourReq = models.CharField(max_length=10)
     CourTea = models.CharField(max_length=10)
-    
+    CourNum = models.IntegerField()
+    Ispass = models.BooleanField(default=False)
+
     class Meta:
         db_table = 'course'
     

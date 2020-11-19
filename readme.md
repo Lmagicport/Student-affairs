@@ -69,23 +69,24 @@
 | AdminPass | charfield|
 | AdminCollege | charfield|
 #### 课程表
-| name  | attr |
-| ---  | --- |
-| CourName | charfield|
-| CourCredit | floatfield|
-| CourPlace | charfield|
-| CourType | charfield|
-| CourReq | charfield|
-| CourTea | charfield|
-| CourNum | Integerfield|
+| name  | attr | meaning|
+| ---  | --- | --- |
+| CourName | charfield| 课程名称|
+| CourCredit | floatfield| 课程学分|
+| CourPlace | charfield| 上课地点 |
+| CourType | charfield| 课程类型 |
+| CourReq | charfield| 前置要求课程|
+| CourTea | charfield| 课程教师(教工号) |
+| CourNum | Integerfield| 课容量|
+| Ispass | Booleanfield | 课程审核是否通过|
 #### 成绩表
 
-| name  | attr |
-| ---  | --- |
-| StuNum |
-| CouName | charfield|
-| StuName | charfield|
-| CourGrade | floatfield|
-| TeaName | charfield| 
+| name  | attr | meaning |
+| ---  | --- | --- |
+| StuNum | charfirld| 学生学号|
+| CouName | charfield| 课程名称 |
+| StuName | charfield| 学生姓名 |
+| CourGrade | floatfield| 课程成绩 |
+| TeaName | charfield| 教师姓名 |
 
 ---

@@ -67,14 +67,14 @@
           </ul>
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">课程信息管理 <span class="sr-only">(current)</span></a></li>
-            <li><a href="{% url 'teacher:addcourse' teainfo.TeaNum %}">上传新课程</a></li>
+            <li><a href="{% url 'teacher:addcourse' teainfo.TeaNum%}">上传新课程</a></li>
             <li><a href="">管理已有课程</a></li>
             <li><a href="">录入课程成绩</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">修改个人信息</h1>
-          <h2 class="sub-header">个人信息</h2>
+          <h1 class="page-header">添加新课程</h1>
+          <h2 class="sub-header">课程信息</h2>
           <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -87,30 +87,39 @@
                         <td>{{teainfo.TeaNum}}</td>
                     </tr>
                 </tbody>
-                <form action="/teacher/teacher/updateself/result/{{teainfo.TeaNum}}" method="post">
+                <form>
                 {% csrf_token %}
                     <div class="form-group">
-                        <lable for="TeaName">教师姓名</lable>
-                        <input type=“text” class="form-control" Name="Name" placeholder={{teainfo.TeaName}} value={{teainfo.TeaName}}>
+                        <lable for="TeaName">课程名称</lable>
+                        <input type=“text” class="form-control" Name="Name" placeholder="课程名称">
                     </div>
                     <div class="form-group">
-                        <lable for="TeaSex">教师性别</lable>
-                        <input type="text" class="form-control" Name="Sex" placeholder={{teainfo.TeaSex}} value={{teainfo.TeaSex}}>
+                        <lable for="TeaSex">课程学分</lable>
+                        <input type="text" class="form-control" Name="Credit" placeholder="课程学分">
                     </div>
                     <div class="form-group">
-                        <lable for="TeaCollege">所属学院</lable>
-                        <input type="text" class="form-control" Name="College" placeholder={{teainfo.TeaCollege}} value={{teainfo.TeaCollege}}>
+                        <lable for="TeaCollege">上课地点</lable>
+                        <input type="text" class="form-control" Name="Place" placeholder="上课地点">
                     </div>
                      <div class="form-group">
-                        <lable for="TeaMajor">所属专业</lable>
-                        <input type="text" class="form-control" Name="Major" placeholder={{teainfo.TeaMajor}} value={{teainfo.TeaMajor}}>
+                        <lable for="TeaMajor">课程类型</lable>
+                        <input type="text" class="form-control" Name="Type" placeholder="课程类型" value="必修">
                     </div>
                     
                      <div class="form-group">
-                        <lable for="TeaBirth">出生年月</lable>
-                        <input type="TeaBirth" class="form-control" Name="Birth" placeholder={{teainfo.TeaBirth|date:"Y-m-d"}} value={{teainfo.TeaBirth}}>
+                        <lable for="TeaBirth">前置课程要求</lable>
+                        <input type="TeaBirth" class="form-control" Name="Require" placeholder="前置课程要求">
                     </div>
-                    <button type="submit" class="btn btn-primary" value="updateself">Submit</button>
+                    <div class="form-group">
+                        <lable for="TeaBirth">课程教师</lable>
+                        <input type="TeaBirth" class="form-control" Name="Teacher" placeholder="课程教师" value={{teainfo.TeaNum}}>
+                    </div>
+                    <div class="form-group">
+                        <lable for="CourNum">课容量</lable>
+                        <input type="text" class="form-control" Name="Num" placeholder="课程教师" value="0">
+                    </div>
+                    <button type="submit" class="btn btn-primary" value="addcourse">Submit</button>
+                    <p class="bg-success">创建课程成功!请等待管理员审核</p>
                 </form>
             </table>
           </div>
