@@ -68,7 +68,7 @@
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">课程信息管理 <span class="sr-only">(current)</span></a></li>
             <li><a href="{% url 'teacher:addcourse' teainfo.TeaNum%}">上传新课程</a></li>
-            <li><a href="{% url 'teacher:lookcourse' teainfo.TeaNum%}">管理已有课程</a></li>
+            <li><a href="">管理已有课程</a></li>
             <li><a href="">录入课程成绩</a></li>
           </ul>
         </div>
@@ -91,37 +91,19 @@
                     <thead>
                         <tr class="info">
                             <th>课程号</th>
-                        </tr>
-                        <tr class="info">
                             <th>课程名</th>
-                        </tr>
-                        <tr class="info">
                             <th>课程学分</th>
-                        </tr>
-                         <tr class="info">
                             <th>上课地点</th>
-                        </tr>
-                        <tr class="info">
                             <th>课程类型</th>
-                        </tr>
-                        <tr class="info">
                             <th>前置课程</th>
-                        </tr>
-                        <tr class="info">
                             <th>任课教师</th>
-                        </tr>
-                        <tr class="info">
                             <th>课容量</th>
-                        </tr>
-                        <tr class="info">
                             <th>审核情况</th>
-                        </tr>
-                        <tr class="info">
-                            <th>操作</th>
+                             <th>操作</th>
                         </tr>
                     </thead>
                     <tbody>
-                      {{% for course in courinfo %}
+                      {% for course in courinfo %}
                           <tr>
                             <td>{{course.id}}</td>
                             <td>{{course.CourName}}</td>
@@ -131,19 +113,21 @@
                             <td>{{course.CourReq}}</td>
                             <td>{{course.CourTea}}</td>
                             <td>{{course.CourNum}}</td>
-                            <td>{{course.IsPass}}</td>
+                            <td>{{course.Ispass}}</td>
+                            <td>
                             <div class="btn-group">
-                              <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-extended="false">
-                                  Action<span class="caret"></span>
-                              </button>
-                              <ul class="dropdown-menu">
-                                <li><a herf="#">修改</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a herf="#">删除</a></li>
-                              </ul>
-                            </div>
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              修改 <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">修改</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">删除</a></li>
+                            </ul>
+                          </div>
+                            </td>
                           </tr>
-                      {% endfor %}}
+                      {% endfor %}
                     </tbody>
                 </table>
             </table>

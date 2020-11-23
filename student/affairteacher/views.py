@@ -87,3 +87,13 @@ def AddCourseResult(request, Num):
     except Exception as e:
         file_write = open(r'student/error.txt','w')
         file_write.write(e)
+
+
+def LookCourse(request, Num):
+    teainfo = StudentTeacher.objects.filter(TeaNum=Num)
+    courinfo = StudentCourse.objects.filter(CourTea=Num)
+    data = {'teainfo': teainfo[0], 'courinfo': courinfo}
+    print(courinfo[0].Ispass)
+    # teainfo = teainfo[0]
+    print(data)
+    return render(request, 'teacher/Tea_lookcourse.html',data)
