@@ -68,12 +68,12 @@
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">课程信息管理 <span class="sr-only">(current)</span></a></li>
             <li><a href="{% url 'teacher:addcourse' teainfo.TeaNum%}">上传新课程</a></li>
-            <li><a href="">管理已有课程</a></li>
+            <li><a href="{% url 'teacher:lookcourse' teainfo.TeaNum%}">管理已有课程</a></li>
             <li><a href="">录入课程成绩</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">添加新课程</h1>
+          <h1 class="page-header">管理已有课程</h1>
           <h2 class="sub-header">课程信息</h2>
           <div class="table-responsive">
             <table class="table table-striped">
@@ -87,39 +87,65 @@
                         <td>{{teainfo.TeaNum}}</td>
                     </tr>
                 </tbody>
-                <form action="/teacher/teacher/addcourse/result/{{teainfo.TeaNum}}" method="post">
-                {% csrf_token %}
-                    <div class="form-group">
-                        <lable for="CourName">课程名称</lable>
-                        <input type=“text” class="form-control" Name="Name" placeholder="课程名称">
-                    </div>
-                    <div class="form-group">
-                        <lable for="CourCredit">课程学分</lable>
-                        <input type="text" class="form-control" Name="Credit" placeholder="课程学分">
-                    </div>
-                    <div class="form-group">
-                        <lable for="CourPlace">上课地点</lable>
-                        <input type="text" class="form-control" Name="Place" placeholder="上课地点">
-                    </div>
-                     <div class="form-group">
-                        <lable for="CourType">课程类型</lable>
-                        <input type="text" class="form-control" Name="Type" placeholder="课程类型" value="必修">
-                    </div>
-                    
-                     <div class="form-group">
-                        <lable for="CourReq">前置课程要求</lable>
-                        <input type="text" class="form-control" Name="Require" placeholder="前置课程要求">
-                    </div>
-                    <div class="form-group">
-                        <lable for="CourTea">课程教师</lable>
-                        <input type="text" class="form-control" Name="Teacher" placeholder="课程教师" value={{teainfo.TeaNum}}>
-                    </div>
-                    <div class="form-group">
-                        <lable for="CourNum">课容量</lable>
-                        <input type="text" class="form-control" Name="Num" placeholder="课程教师" value="0">
-                    </div>
-                    <button type="submit" class="btn btn-primary" value="addcourse">Submit</button>
-                </form>
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="info">
+                            <th>课程号</th>
+                        </tr>
+                        <tr class="info">
+                            <th>课程名</th>
+                        </tr>
+                        <tr class="info">
+                            <th>课程学分</th>
+                        </tr>
+                         <tr class="info">
+                            <th>上课地点</th>
+                        </tr>
+                        <tr class="info">
+                            <th>课程类型</th>
+                        </tr>
+                        <tr class="info">
+                            <th>前置课程</th>
+                        </tr>
+                        <tr class="info">
+                            <th>任课教师</th>
+                        </tr>
+                        <tr class="info">
+                            <th>课容量</th>
+                        </tr>
+                        <tr class="info">
+                            <th>审核情况</th>
+                        </tr>
+                        <tr class="info">
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {{% for course in courinfo %}
+                          <tr>
+                            <td>{{course.id}}</td>
+                            <td>{{course.CourName}}</td>
+                            <td>{{course.CourCredit}}</td>
+                            <td>{{course.CourPlace}}</td>
+                            <td>{{course.CourType}}</td>
+                            <td>{{course.CourReq}}</td>
+                            <td>{{course.CourTea}}</td>
+                            <td>{{course.CourNum}}</td>
+                            <td>{{course.IsPass}}</td>
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-extended="false">
+                                  Action<span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a herf="#">修改</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a herf="#">删除</a></li>
+                              </ul>
+                            </div>
+                          </tr>
+                      {% endfor %}}
+                    </tbody>
+                </table>
             </table>
           </div>
         </div>
