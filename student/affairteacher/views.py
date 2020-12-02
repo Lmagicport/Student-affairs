@@ -97,3 +97,12 @@ def LookCourse(request, Num):
     # teainfo = teainfo[0]
     print(data)
     return render(request, 'teacher/Tea_lookcourse.html',data)
+
+
+def AlterCourse(request, Num):
+    courinfo = StudentCourse.objects.filter(id=Num)
+    teanum = courinfo[0].CourTea
+    print(teanum)
+    teainfo = StudentTeacher.objects.filter(TeaNum=teanum)
+    data = {'teainfo': teainfo[0], 'courinfo': courinfo[0]}
+    return render(request, 'teacher/Alter_Course.html', data)

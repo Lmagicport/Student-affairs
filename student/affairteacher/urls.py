@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^teacher/updateself/result/(\d+)$', views.UpdateSelfResult, name='updateselfresult'),
     url(r'^teacher/addcourse/(\d+)$', views.AddCourse, name='addcourse'),
     url(r'^teacher/addcourse/result/(\d+)$', views.AddCourseResult, name='addcourseresult'),
-    url(r'^teacher/lookcourse/(\d+)$', views.LookCourse, name='lookcourse')
+    url(r'^teacher/lookcourse/(\d+)$', views.LookCourse, name='lookcourse'),
+    url(r'^teacher/altercourse/(\d+)$', views.AlterCourse, name='altercourse')
 ]
