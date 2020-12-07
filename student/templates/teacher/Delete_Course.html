@@ -73,7 +73,7 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">管理已有课程</h1>
+          <h1 class="page-header">删除课程</h1>
           <h2 class="sub-header">课程信息</h2>
           <div class="table-responsive">
             <table class="table table-striped">
@@ -87,49 +87,40 @@
                         <td>{{teainfo.TeaNum}}</td>
                     </tr>
                 </tbody>
-                <table class="table table-striped">
-                    <thead>
-                        <tr class="info">
-                            <th>课程号</th>
-                            <th>课程名</th>
-                            <th>课程学分</th>
-                            <th>上课地点</th>
-                            <th>课程类型</th>
-                            <th>前置课程</th>
-                            <th>任课教师</th>
-                            <th>课容量</th>
-                            <th>审核情况</th>
-                             <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      {% for course in courinfo %}
-                          <tr>
-                            <td>{{course.id}}</td>
-                            <td>{{course.CourName}}</td>
-                            <td>{{course.CourCredit}}</td>
-                            <td>{{course.CourPlace}}</td>
-                            <td>{{course.CourType}}</td>
-                            <td>{{course.CourReq}}</td>
-                            <td>{{course.CourTea}}</td>
-                            <td>{{course.CourNum}}</td>
-                            <td>{{course.Ispass}}</td>
-                            <td>
-                            <div class="btn-group">
-                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              修改 <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                              <li><a href="{% url 'teacher:altercourse' course.id%}">修改</a></li>
-                              <li role="separator" class="divider"></li>
-                              <li><a href="{% url 'teacher:deletecourse' course.id%}">删除</a></li>
-                            </ul>
-                          </div>
-                            </td>
-                          </tr>
-                      {% endfor %}
-                    </tbody>
-                </table>
+                <form action="/teacher/teacher/deletecourse/result/{{courinfo.id}}" method="post">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <lable for="CourName">课程名称</lable>
+                        <input type="text" class="form-control" Name="Name" placeholder={{courinfo.CourName}} value={{courinfo.CourName}}>
+                    </div>
+                    <div class="form-group">
+                        <lable for="CourCredit">课程学分</lable>
+                        <input type="text" class="form-control" Name="Credit" placeholder={{courinfo.CourCredit}} value={{courinfo.CourCredit}}>
+                    </div>
+                    <div class="form-group">
+                        <lable for="CourPlace">上课地点</lable>
+                        <input type="text" class="form-control" Name="Place" placeholder={{courinfo.CourCredit}} value={{courinfo.CourPlace}}>
+                    </div>
+                     <div class="form-group">
+                        <lable for="CourType">课程类型</lable>
+                        <input type="text" class="form-control" Name="Type" placeholder={{courinfo.CourCredit}} value={{courinfo.CourType}}>
+                    </div>
+                    
+                     <div class="form-group">
+                        <lable for="CourReq">前置课程要求</lable>
+                        <input type="text" class="form-control" Name="Require" placeholder={{courinfo.CourCredit}} value={{courinfo.CourReq}}>
+                    </div>
+                    <div class="form-group">
+                        <lable for="CourTea">课程教师</lable>
+                        <input type="text" class="form-control" Name="Teacher" placeholder={{courinfo.CourCredit}} value={{courinfo.CourTea}}>
+                    </div>
+                    <div class="form-group">
+                        <lable for="CourNum">课容量</lable>
+                        <input type="text" class="form-control" Name="Num" placeholder={{courinfo.CourCredit}} value={{courinfo.CourNum}}>
+                    </div>
+                    <div class="alert alert-danger" role="alert">请在删除前对课程信息进行确认</div>
+                    <button type="submit" class="btn btn-danger" value="addcourse">确认删除</button>
+                </form>
             </table>
           </div>
         </div>

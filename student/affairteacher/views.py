@@ -106,3 +106,54 @@ def AlterCourse(request, Num):
     teainfo = StudentTeacher.objects.filter(TeaNum=teanum)
     data = {'teainfo': teainfo[0], 'courinfo': courinfo[0]}
     return render(request, 'teacher/Alter_Course.html', data)
+
+
+def AlterCourseResult(request, Num):
+    CourName = request.POST.get('Name')
+    CourCredit = request.POST.get('Credit')
+    CourPlace = request.POST.get('Place')
+    CourType = request.POST.get('Type')
+    CourReq = request.POST.get('Require')
+    CourTea = request.POST.get('Teacher')
+    # Num指课程容量
+    CourNum = request.POST.get('Num')
+    # 取出教师数据
+    courinfo = StudentCourse.objects.filter(id=Num)
+    teanum = courinfo[0].CourTea
+    teainfo = StudentTeacher.objects.filter(TeaNum=teanum)
+    StudentCourse.objects.filter(id=Num).update(CourName=CourName, CourCredit=CourCredit, CourPlace=CourPlace, CourType=CourType, CourReq=CourReq, CourTea=CourTea, CourNum=CourNum,Ispass=False)
+    courinfo = StudentCourse.objects.filter(id=Num)
+    data = {'teainfo':teainfo[0],'courinfo': courinfo[0]}
+    return render(request, 'teacher/AlterCourse_Result.html', data)
+
+
+def DeleteCourse(request, Num):
+    courinfo = StudentCourse.objects.filter(id=Num)
+    teanum = courinfo[0].CourTea
+    print(teanum)
+    teainfo = StudentTeacher.objects.filter(TeaNum=teanum)
+    data = {'teainfo': teainfo[0], 'courinfo': courinfo[0]}
+    return render(request, 'teacher/Delete_Course.html', data)
+
+
+def DeleteCourseResult(request, Num):
+    CourName = request.POST.get('Name')
+    CourCredit = request.POST.get('Credit')
+    CourPlace = request.POST.get('Place')
+    CourType = request.POST.get('Type')
+    CourReq = request.POST.get('Require')
+    CourTea = request.POST.get('Teacher')
+    CourNum = request.POST.get('Num')
+    course = StudentCourse()
+    course.CourName = CourName
+    course.CourCredit = float(CourCredit)
+    course.CourPlace = CourPlace
+    course.CourType = CourType
+    course.CourReq = CourReq
+    course.CourTea = CourTea
+    course.CourNum = int(CourNum)
+    course.id = int(Num)
+    course.delete()
+    teacher = StudentTeacher.objects.filter(TeaNum=CourTea)
+    teainfo = teacher[0]
+    return render(request, 'teacher/DeleteCourse_Result.html', {"teainfo":teainfo})

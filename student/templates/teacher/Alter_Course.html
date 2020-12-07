@@ -73,7 +73,7 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">管理已有课程</h1>
+          <h1 class="page-header">修改课程信息</h1>
           <h2 class="sub-header">课程信息</h2>
           <div class="table-responsive">
             <table class="table table-striped">
@@ -87,7 +87,7 @@
                         <td>{{teainfo.TeaNum}}</td>
                     </tr>
                 </tbody>
-                <form>
+                <form action="/teacher/teacher/altercourse/result/{{courinfo.id}}" method="post">
                 {% csrf_token %}
                     <div class="form-group">
                         <lable for="CourName">课程名称</lable>
