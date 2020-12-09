@@ -157,3 +157,5 @@ def DeleteCourseResult(request, Num):
     teacher = StudentTeacher.objects.filter(TeaNum=CourTea)
     teainfo = teacher[0]
     return render(request, 'teacher/DeleteCourse_Result.html', {"teainfo":teainfo})
+
+
