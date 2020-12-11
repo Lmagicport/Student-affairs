@@ -12,5 +12,7 @@ urlpatterns = [
     url(r'^teacher/altercourse/(\d+)$', views.AlterCourse, name='altercourse'),
     url(r'^teacher/altercourse/result/(\d+)$', views.AlterCourseResult, name='altercourseresult'),
     url(r'^teacher/deletecourse/(\d+)$', views.DeleteCourse, name='deletecourse'),
-    url(r'^teacher/deletecourse/result/(\d+)$',views.DeleteCourseResult,name='deletecourseresult')
+    url(r'^teacher/deletecourse/result/(\d+)$', views.DeleteCourseResult, name='deletecourseresult'),
+    url(r'^teacher/addcoursegrade/choose/(\d+)$', views.AddCourseChoose, name='addcoursegradechoose'),
+    url(r'^teacher/addcoursegrade/update/(\d+)$', views.AddCourseGrade, name='addcoursegrade')
 ]

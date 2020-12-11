@@ -4,6 +4,7 @@ from .models import StudentTeacher
 import datetime
 import time
 from affaircourse.models import StudentCourse
+from affairCS.models import StudentTeacher as ST
 # Create your views here.
 
 
@@ -157,5 +158,29 @@ def DeleteCourseResult(request, Num):
     teacher = StudentTeacher.objects.filter(TeaNum=CourTea)
     teainfo = teacher[0]
     return render(request, 'teacher/DeleteCourse_Result.html', {"teainfo":teainfo})
+
+
+# 课程成绩输入选择课程
+def AddCourseChoose(request, Num):
+    # 从数据库中根据教师编号取出教师信息以及课程信息备选
+    teainfo = StudentTeacher.objects.filter(TeaNum=Num)
+    courinfo = StudentCourse.objects.filter(CourTea=Num)
+    data = {'courinfo': courinfo, 'teainfo': teainfo[0]}
+    return render(request, 'teacher/Add_Course_Choose.html', data)
+
+
+# 录入课程成绩
+def AddCourseGrade(request, Num):
+    # 从CS连表中根据课程号取出数据
+    courinfo = ST.objects.filter(CourNum=Num)
+    cour = StudentCourse.objects.filter(id=Num)
+    teanum = cour[0].CourTea
+    print(teanum)
+    teainfo = StudentTeacher.objects.filter(TeaNum=teanum)
+    data = {'courinfo': courinfo, 'teainfo': teainfo[0]}
+    return render(request, 'teacher/Add_Course_Grade.html', data)
+
+
+
 
 

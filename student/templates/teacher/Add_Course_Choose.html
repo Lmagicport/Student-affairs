@@ -74,7 +74,7 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">录入课程成绩</h1>
-          <h2 class="sub-header">成绩录入</h2>
+          <h2 class="sub-header">课程信息</h2>
           <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -88,32 +88,41 @@
                     </tr>
                 </tbody>
                 <table class="table table-striped">
-                <form>
                     <thead>
                         <tr class="info">
-                            <th>学生学号</th>
-                            <th>学生姓名</th>
-                            <th>课程名</th>
                             <th>课程号</th>
+                            <th>课程名</th>
+                            <th>课程学分</th>
+                            <th>上课地点</th>
+                            <th>课程类型</th>
+                            <th>前置课程</th>
                             <th>任课教师</th>
-                            <th>课程成绩</th>
+                            <th>课容量</th>
+                            <th>审核情况</th>
+                             <th>操作</th>
                         </tr>
                     </thead>
                     <tbody>
                       {% for course in courinfo %}
                           <tr>
-                            <td>{{course.StuNum}}</td>
-                            <td>{{course.StuName}}</td>
-                            <td>{{course.CourNum}}</td>
+                            <td>{{course.id}}</td>
                             <td>{{course.CourName}}</td>
+                            <td>{{course.CourCredit}}</td>
+                            <td>{{course.CourPlace}}</td>
+                            <td>{{course.CourType}}</td>
+                            <td>{{course.CourReq}}</td>
                             <td>{{course.CourTea}}</td>
-                            <td><input type="text" class="form-control" Name={{course.StuNum}} placeholder="课程成绩" value={{courinfo.CourGrade}}></td>
+                            <td>{{course.CourNum}}</td>
+                            <td>{{course.Ispass}}</td>
+                            <td>
+                            <a href="{% url 'teacher:addcoursegrade' course.id %}">
+                            <input class="btn btn-info" type="button" value="录入课程成绩">
+                            </a>
+                            </td>
                           </tr>
                       {% endfor %}
-                     <tr> <input class="btn btn-info" type="submit" value="提交课程成绩"></tr>
-                    
-                    </tbody>   
-                </form>
+                    </tbody>
+                </table>
             </table>
           </div>
         </div>
