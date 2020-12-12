@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'^teacher/deletecourse/(\d+)$', views.DeleteCourse, name='deletecourse'),
     url(r'^teacher/deletecourse/result/(\d+)$', views.DeleteCourseResult, name='deletecourseresult'),
     url(r'^teacher/addcoursegrade/choose/(\d+)$', views.AddCourseChoose, name='addcoursegradechoose'),
-    url(r'^teacher/addcoursegrade/update/(\d+)$', views.AddCourseGrade, name='addcoursegrade')
+    url(r'^teacher/addcoursegrade/update/(\d+)$', views.AddCourseGrade, name='addcoursegrade'),
+    url(r'^teacher/addcoursegrade/result/(\d+)$', views.AddCourseGradeResult, name='addcoursegraderesult')
 ]

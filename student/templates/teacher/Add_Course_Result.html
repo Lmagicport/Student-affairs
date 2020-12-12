@@ -87,8 +87,8 @@
                         <td>{{teainfo.TeaNum}}</td>
                     </tr>
                 </tbody>
-                <form action="/teacher/teacher/addcoursegrade/result/{{course.CourNum}}" method="post">
                 <table class="table table-striped">
+                <form>
                     <thead>
                         <tr class="info">
                             <th>学生学号</th>
@@ -113,9 +113,10 @@
                      <tr>
                      <input class="btn btn-info" type="submit" value="提交课程成绩">
                      </tr>
-                    </tbody> 
+                    </tbody>
+                    <p class="bg-success">课程成绩已上传！</p>   
+                </form>
             </table>
-            </form>
           </div>
         </div>
       </div>

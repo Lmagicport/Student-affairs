@@ -169,7 +169,7 @@ def AddCourseChoose(request, Num):
     return render(request, 'teacher/Add_Course_Choose.html', data)
 
 
-# 录入课程成绩
+# 提交课程成绩
 def AddCourseGrade(request, Num):
     # 从CS连表中根据课程号取出数据
     courinfo = ST.objects.filter(CourNum=Num)
@@ -177,10 +177,28 @@ def AddCourseGrade(request, Num):
     teanum = cour[0].CourTea
     print(teanum)
     teainfo = StudentTeacher.objects.filter(TeaNum=teanum)
-    data = {'courinfo': courinfo, 'teainfo': teainfo[0]}
+    course = courinfo[0]
+    data = {'courinfo': courinfo, 'teainfo': teainfo[0],'course':course}
     return render(request, 'teacher/Add_Course_Grade.html', data)
 
 
-
-
+# 将课程成绩提交至数据库
+def AddCourseGradeResult(request, Num):
+    # 从CS连表中取出数据
+    courinfo = ST.objects.filter(CourNum=Num)
+    cour = StudentCourse.objects.filter(id=Num)
+    teanum = cour[0].CourTea
+    teainfo = StudentTeacher.objects.filter(TeaNum=teanum)
+    # 保存数据
+    coursegrade = {}
+    for i in range(len(courinfo)):
+        coursegrade[courinfo[i].StuNum] = request.POST.get(str(courinfo[i].StuNum))
+    print(coursegrade)
+    # 遍历字典，并将更改提交至数据库
+    for key in coursegrade:
+        ST.objects.filter(CourNum=Num, StuNum=key).update(CourGrade=float(coursegrade[key]))
+    # 取出更新后数据
+    courinfo = ST.objects.filter(CourNum=Num)
+    data = {'teainfo': teainfo[0], 'courinfo': courinfo}
+    return render(request, 'teacher/Add_Course_Result.html',data)
 
