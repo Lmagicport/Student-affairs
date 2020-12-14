@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^search_student/(?P<student_StuNum>[0-9]*)/$', views.search_student),
     url(r'^updateStudent/', views.updateStudent),
     url(r'^search_teacher/(?P<teacher_TeaNum>[0-9]*)/$', views.search_teacher),
+    url(r'^pass/(?P<course_id>[0-9]*)/$', views.pass_course),
     url(r'^updateTeacher/', views.updateTeacher),
     url(r'^teacher/', include(('affairteacher.urls', 'teacher'), namespace='teacher'))
 ]

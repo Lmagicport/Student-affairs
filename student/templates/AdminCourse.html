@@ -4,14 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>课程管理</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/layui.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="http://x.xuebingsi.com/x-admin/v2.2/lib/layui/css/layui.css" />
+<!--    <link rel="stylesheet" href="{% static 'css/layui.css'%}"/>-->
+    <link rel="stylesheet" href="http://x.xuebingsi.com/x-admin/v2.2/css/font.css">
+<!--    <link rel="stylesheet" href="static/css/font.css"/>-->
+    <link rel="stylesheet" href="http://x.xuebingsi.com/x-admin/v2.2/css/login.css">
+<!--    <link rel="stylesheet" href="static/css/login.css"/>-->
+    <link rel="stylesheet" href="http://x.xuebingsi.com/x-admin/v2.2/css/xadmin.css">
+<!--    <link rel="stylesheet" href="static/css/xadmin.css"/>-->
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://x.xuebingsi.com/x-admin/v2.2/lib/layui/layui.js"></script>
+<!--    <script type="text/javascript" src="/static/js/layui.js" ></script>-->
 </head>
 <body>
 <!--管理员 课程管理-->
 {% block content %}
     <div class="layui-container">
         <blockquote class="layui-elem-quote">
-            <h1>CRUD——Django + LayUI</h1>
+            <h1>课程管理页面</h1>
         </blockquote>
         {# 显示所有课程模块 #}
         <table class="layui-table">
@@ -29,7 +39,9 @@
             <th>课程类型</th>
             <th>前置课程</th>
             <th>任课教师</th>
-            <th>删除</th>
+            <th>课余量</th>
+            <th>审核状态</th>
+            <th>通过</th>
         </tr>
       </thead>
       <tbody>
@@ -42,21 +54,18 @@
                 <td>{{course.CourType}}</td>
                 <td>{{course.CourReq}}</td>
                 <td>{{course.CourTea}}</td>
+                <td>{{course.CourNum}}</td>
+                <td>{{course.Ispass}}</td>
                 <td>
-                    {# 删除学生模块 #}
-                    <a href="/delete/{{ course.id }}" class="layui-btn layui-btn-danger">
-                        <i class="layui-icon">&#xe640;</i>删除
+                    {# 通过审核 #}
+                    <a href="/pass/{{ course.id }}" class="layui-btn layui-btn-danger">
+                        通过
                     </a>
                 </td>
             </tr>
         {%endfor%}
       </tbody>
         </table>
-
-        {# 添加学生模块 #}
-        <a href="/AdminCourseAdd" class="layui-btn layui-btn-warm">
-            <i class="layui-icon">&#xe654;</i> 添加
-        </a>
     </div>
 {% endblock %}
 </body>

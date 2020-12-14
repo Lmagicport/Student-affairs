@@ -6,6 +6,7 @@ from affairadmin.models import StudentAdmin
 from affaircourse.models import StudentCourse
 from affairteacher.models import StudentTeacher
 from affairstudent.models import StudentStudent
+from datetime import datetime
 
 
 def login(request):
@@ -134,6 +135,7 @@ def updateStudent(request):
 def AdminTeacher(request):
   data = StudentTeacher.objects.all()
   content = {'data': data}
+  content['data'][0].TeaBirth.strftime('%Y-%m-%d')
   return  render(request, 'AdminTeacher.html',content)
 
 
@@ -146,8 +148,9 @@ def AdminAddTeacher(request):
     studentTeacher.TeaSex = request.POST['TeaSex']
     studentTeacher.TeaCollege = request.POST['TeaCollege']
     studentTeacher.TeaPass = request.POST['TeaNum']
-    print(studentTeacher)
-    studentTeacher.save()
+    # studentTeacher.TeaBirth = request.POST['TeaBirth']
+    print(studentTeacher.TeaNum)
+    #studentTeacher.save()
     data = StudentTeacher.objects.all()
     print(data)
     content = {'data': data}
@@ -159,6 +162,14 @@ def search_teacher(request, teacher_TeaNum):
     content = {'data': teacher}
     print(content)
     return  render(request, 'AdminTeacherUpdate.html', content)
+
+def pass_course(request, course_id):
+  print("pass")
+  StudentCourse.objects.filter(id=course_id).update(Ispass="True")
+  data = StudentCourse.objects.all()
+  content = {'data': data}
+  return render(request, 'AdminCourse.html',content)
+
 
 
 @csrf_exempt

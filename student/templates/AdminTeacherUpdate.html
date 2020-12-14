@@ -3,12 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>教师信息管理</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/layui.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="http://x.xuebingsi.com/x-admin/v2.2/lib/layui/css/layui.css" />
+<!--    <link rel="stylesheet" href="{% static 'css/layui.css'%}"/>-->
+    <link rel="stylesheet" href="http://x.xuebingsi.com/x-admin/v2.2/css/font.css">
+<!--    <link rel="stylesheet" href="static/css/font.css"/>-->
+    <link rel="stylesheet" href="http://x.xuebingsi.com/x-admin/v2.2/css/login.css">
+<!--    <link rel="stylesheet" href="static/css/login.css"/>-->
+    <link rel="stylesheet" href="http://x.xuebingsi.com/x-admin/v2.2/css/xadmin.css">
+<!--    <link rel="stylesheet" href="static/css/xadmin.css"/>-->
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://x.xuebingsi.com/x-admin/v2.2/lib/layui/layui.js"></script>
 </head>
+<body>
 {% block content %}
     <div class="layui-container">
         <blockquote class="layui-elem-quote">
-            <h1>Update Student Page</h1>
+            <h1>教师信息更改页面</h1>
         </blockquote>
 
         <div class="layui-row">
@@ -32,10 +42,32 @@
                     <input type="text" name="TeaMajor" id="TeaMajor" placeholder="专业" class="layui-input" value="{{ teacher.TeaMajor }}"/>
                     <hr class="layui-bg-green">
 
+<!--                    <input type="text" name="TeaMajor" id="TeaBirth" placeholder="出生日期" class="layui-input" value="{{ teacher.TeaBirth }}"/>-->
+<!--                    <hr class="layui-bg-green">-->
+
+                    <div class="layui-inline"> <!-- 注意：这一层元素并不是必须的 -->
+                        <input type="text" placeholder="出生日期" name="TeaBirth" value="{{teacher.TeaBirth}}" class="layui-input" id="TeaBirth"/>
+                    </div>
+
                     <input type="submit" value="修改" class="layui-btn"/>
                 </form>
             </div>
         </div>
         {% endfor %}
     </div>
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+
+  //执行一个laydate实例
+  laydate.render({
+    elem: '#TeaBirth' //指定元素
+    ,trigger: 'click'
+
+  });
+
+});
+</script>
+</body>
+</html>
 {% endblock %}
