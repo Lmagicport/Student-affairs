@@ -53,7 +53,7 @@
                 <td>{{student.StuGra}}</td>
                 <td>
                     {# 修改学生模块 #}
-                    <a href="/search_student/{{ student.StuNum }}" class="layui-btn layui-btn-danger">
+                    <a href="{%url 'admin:search_student'  student.StuNum %}" class="layui-btn layui-btn-danger">
                         <i class="layui-icon">&#xe640;</i>修改
                     </a>
                 </td>
@@ -63,7 +63,7 @@
         </table>
 
         {# 添加学生模块 #}
-        <a href="/AdminStudentAdd" class="layui-btn layui-btn-warm">
+        <a href="{%url 'admin:AdminStudentAdd' %}" class="layui-btn layui-btn-warm">
             <i class="layui-icon">&#xe654;</i> 添加
         </a>
     </div>

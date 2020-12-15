@@ -25,7 +25,7 @@
         <div class="layui-row">
 
             <div class="layui-col-md9">
-                <form action="/AdminAddTeacher/" method="post" class="layui-form layui-form-pane" />
+                <form action="{%url 'admin:AdminAddTeacher' %}" method="post" class="layui-form layui-form-pane" />
                 {% csrf_token %}
                     <hr class="layui-bg-green">
 

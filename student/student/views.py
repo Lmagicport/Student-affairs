@@ -13,32 +13,32 @@ def login(request):
   return render(request, 'login.html')
 
 
-def AdminCourseAdd(request):
-  return  render(request, 'AdminCourseAdd.html')
+# def AdminCourseAdd(request):
+#   return  render(request, 'AdminCourseAdd.html')
 
 
-def AdminStudentAdd(request):
-  return  render(request, 'AdminStudentAdd.html')
+# def AdminStudentAdd(request):
+#   return  render(request, 'AdminStudentAdd.html')
 
 
-def AdminTeacherAdd(request):
-  return  render(request, 'AdminTeacherAdd.html')
+# def AdminTeacherAdd(request):
+#   return  render(request, 'AdminTeacherAdd.html')
 
 
-def AdminAddCourse(request):
-  print('??')
-  studentCourse = StudentCourse()
-  studentCourse.CourName = request.POST['CourName']
-  studentCourse.CourCredit = request.POST['CourCredit']
-  studentCourse.CourReq = request.POST['CourReq']
-  studentCourse.CourPlace = request.POST['CourPlace']
-  studentCourse.CourType = request.POST['CourType']
-  studentCourse.CourTea = request.POST['CourTea']
-  print(studentCourse)
-  studentCourse.save()
-  data = StudentCourse.objects.all()
-  content = {'data': data}
-  return  render(request, 'AdminCourse.html' , content)
+# def AdminAddCourse(request):
+#   print('??')
+#   studentCourse = StudentCourse()
+#   studentCourse.CourName = request.POST['CourName']
+#   studentCourse.CourCredit = request.POST['CourCredit']
+#   studentCourse.CourReq = request.POST['CourReq']
+#   studentCourse.CourPlace = request.POST['CourPlace']
+#   studentCourse.CourType = request.POST['CourType']
+#   studentCourse.CourTea = request.POST['CourTea']
+#   print(studentCourse)
+#   studentCourse.save()
+#   data = StudentCourse.objects.all()
+#   content = {'data': data}
+#   return  render(request, 'AdminCourse.html' , content)
 
 
 def AdminCourse(request):
@@ -47,12 +47,12 @@ def AdminCourse(request):
   return  render(request, 'AdminCourse.html',content)
 
 
-def delete_course(request, course_id):
-  print(course_id)
-  StudentCourse.objects.filter(id=course_id).delete()
-  data = StudentCourse.objects.all()
-  content = {'data': data}
-  return render(request, 'AdminCourse.html',content)
+# def delete_course(request, course_id):
+#   print(course_id)
+#   StudentCourse.objects.filter(id=course_id).delete()
+#   data = StudentCourse.objects.all()
+#   content = {'data': data}
+#   return render(request, 'AdminCourse.html',content)
 
 
 def AdminStudent(request):
@@ -90,29 +90,29 @@ def loginin(request):
       return render(request, 'error.html')
 
 
-def AdminAddStudent(request):
-    print('??')
-    studentStudent = StudentStudent()
-    studentStudent.StuNum = request.POST['StuNum']
-    studentStudent.StuName = request.POST['StuName']
-    studentStudent.StuAge = request.POST['StuAge']
-    studentStudent.StuSex = request.POST['StuSex']
-    studentStudent.StuCollege = request.POST['StuCollege']
-    studentStudent.StuMajor = request.POST['StuMajor']
-    studentStudent.StuGra = request.POST['StuGra']
-    studentStudent.StuPass = request.POST['StuNum']
-    print(studentStudent)
-    studentStudent.save()
-    data = StudentStudent.objects.all()
-    content = {'data': data}
-    return render(request, 'AdminStudent.html', content)
+# def AdminAddStudent(request):
+#     print('??')
+#     studentStudent = StudentStudent()
+#     studentStudent.StuNum = request.POST['StuNum']
+#     studentStudent.StuName = request.POST['StuName']
+#     studentStudent.StuAge = request.POST['StuAge']
+#     studentStudent.StuSex = request.POST['StuSex']
+#     studentStudent.StuCollege = request.POST['StuCollege']
+#     studentStudent.StuMajor = request.POST['StuMajor']
+#     studentStudent.StuGra = request.POST['StuGra']
+#     studentStudent.StuPass = request.POST['StuNum']
+#     print(studentStudent)
+#     studentStudent.save()
+#     data = StudentStudent.objects.all()
+#     content = {'data': data}
+#     return render(request, 'AdminStudent.html', content)
 
 
-def search_student(request, student_StuNum):
-    student = StudentStudent.objects.filter(StuNum=student_StuNum)
-    content = {'data': student}
-    print(content)
-    return  render(request, 'AdminStudentUpdate.html', content)
+# def search_student(request, student_StuNum):
+#     student = StudentStudent.objects.filter(StuNum=student_StuNum)
+#     content = {'data': student}
+#     print(content)
+#     return  render(request, 'AdminStudentUpdate.html', content)
 
 
 @csrf_exempt
@@ -148,9 +148,9 @@ def AdminAddTeacher(request):
     studentTeacher.TeaSex = request.POST['TeaSex']
     studentTeacher.TeaCollege = request.POST['TeaCollege']
     studentTeacher.TeaPass = request.POST['TeaNum']
-    # studentTeacher.TeaBirth = request.POST['TeaBirth']
+    studentTeacher.TeaBirth = request.POST['TeaBirth']
     print(studentTeacher.TeaNum)
-    #studentTeacher.save()
+    studentTeacher.save()
     data = StudentTeacher.objects.all()
     print(data)
     content = {'data': data}
